@@ -15,6 +15,17 @@
 
 @implementation QRCodeReader
 
+- (id)init
+{
+  if ((self = [super init])) {
+    _metadataObjectTypes = @[AVMetadataObjectTypeQRCode];
+
+    [self setupAVComponents];
+    [self configureDefaultComponents];
+  }
+  return self;
+}
+
 - (id)initWithMetadataObjectTypes:(NSArray *)metadataObjectTypes
 {
   if ((self = [super init])) {
@@ -64,7 +75,10 @@
   }
 
   [_metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-  [_metadataOutput setMetadataObjectTypes:_metadataObjectTypes];
+  NSMutableSet *available = [NSMutableSet setWithArray:[_metadataOutput availableMetadataObjectTypes]];
+  NSSet *desired = [NSSet setWithArray:_metadataObjectTypes];
+  [available intersectSet:desired];
+  [_metadataOutput setMetadataObjectTypes:available.allObjects];
   [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
 }
 
@@ -86,6 +100,26 @@
 - (BOOL)hasFrontDevice
 {
   return _frontDevice != nil;
+}
+
+- (BOOL)isTorchAvailable
+{
+  return _defaultDevice.hasTorch;
+}
+
+- (void)toggleTorch
+{
+  NSError *error = nil;
+
+  [_defaultDevice lockForConfiguration:&error];
+
+  if (error == nil) {
+    AVCaptureTorchMode mode = _defaultDevice.torchMode;
+
+    _defaultDevice.torchMode = mode == AVCaptureTorchModeOn ? AVCaptureTorchModeOff : AVCaptureTorchModeOn;
+  }
+  
+  [_defaultDevice unlockForConfiguration];
 }
 
 #pragma mark - Controlling Reader

@@ -16,6 +16,8 @@
 		A312E7F51B7E08BA00CF3C34 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A312E7EC1B7E08BA00CF3C34 /* QRCodeReaderView.m */; };
 		A312E7F61B7E08BA00CF3C34 /* QRCodeReaderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A312E7ED1B7E08BA00CF3C34 /* QRCodeReaderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A312E7F71B7E08BA00CF3C34 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A312E7EE1B7E08BA00CF3C34 /* QRCodeReaderViewController.m */; };
+		A378A0BE1DB0150800C481AF /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A378A0BC1DB0150800C481AF /* QRToggleTorchButton.m */; };
+		A378A0BF1DB0150800C481AF /* QRToggleTorchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A378A0BD1DB0150800C481AF /* QRToggleTorchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3CE9E0B1B7F825D00963570 /* BarcodeScannerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = A3CE9E0A1B7F825D00963570 /* BarcodeScannerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		A312E7EC1B7E08BA00CF3C34 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
 		A312E7ED1B7E08BA00CF3C34 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
 		A312E7EE1B7E08BA00CF3C34 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		A378A0BC1DB0150800C481AF /* QRToggleTorchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRToggleTorchButton.m; sourceTree = "<group>"; };
+		A378A0BD1DB0150800C481AF /* QRToggleTorchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRToggleTorchButton.h; sourceTree = "<group>"; };
 		A3CE9E0A1B7F825D00963570 /* BarcodeScannerFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarcodeScannerFramework.h; path = BarcodeScannerFramework/BarcodeScannerFramework.h; sourceTree = SOURCE_ROOT; };
 		A3CE9E0C1B7F826700963570 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BarcodeScannerFramework/Info.plist; sourceTree = SOURCE_ROOT; };
 		FA87D6791AC9A2C400F12F0E /* BarcodeScannerFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BarcodeScannerFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +60,8 @@
 				A312E7EA1B7E08BA00CF3C34 /* QRCodeReaderDelegate.h */,
 				A312E7EB1B7E08BA00CF3C34 /* QRCodeReaderView.h */,
 				A312E7EC1B7E08BA00CF3C34 /* QRCodeReaderView.m */,
+				A378A0BC1DB0150800C481AF /* QRToggleTorchButton.m */,
+				A378A0BD1DB0150800C481AF /* QRToggleTorchButton.h */,
 				A312E7ED1B7E08BA00CF3C34 /* QRCodeReaderViewController.h */,
 				A312E7EE1B7E08BA00CF3C34 /* QRCodeReaderViewController.m */,
 				FA87D67A1AC9A2C400F12F0E /* Products */,
@@ -97,6 +103,7 @@
 				A3CE9E0B1B7F825D00963570 /* BarcodeScannerFramework.h in Headers */,
 				A312E7F31B7E08BA00CF3C34 /* QRCodeReaderDelegate.h in Headers */,
 				A312E7F41B7E08BA00CF3C34 /* QRCodeReaderView.h in Headers */,
+				A378A0BF1DB0150800C481AF /* QRToggleTorchButton.h in Headers */,
 				A312E7EF1B7E08BA00CF3C34 /* QRCameraSwitchButton.h in Headers */,
 				A312E7F11B7E08BA00CF3C34 /* QRCodeReader.h in Headers */,
 				A312E7F61B7E08BA00CF3C34 /* QRCodeReaderViewController.h in Headers */,
@@ -172,6 +179,7 @@
 			files = (
 				A312E7F51B7E08BA00CF3C34 /* QRCodeReaderView.m in Sources */,
 				A312E7F71B7E08BA00CF3C34 /* QRCodeReaderViewController.m in Sources */,
+				A378A0BE1DB0150800C481AF /* QRToggleTorchButton.m in Sources */,
 				A312E7F01B7E08BA00CF3C34 /* QRCameraSwitchButton.m in Sources */,
 				A312E7F21B7E08BA00CF3C34 /* QRCodeReader.m in Sources */,
 			);
