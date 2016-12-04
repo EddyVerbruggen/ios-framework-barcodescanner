@@ -78,15 +78,15 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 
-    __weak __typeof__(self) weakSelf = self;
+    //__weak __typeof__(self) weakSelf = self;
 
     [codeReader setCompletionWithBlock:^(NSString *resultAsString, NSString *typeAsString) {
-      if (weakSelf.completionBlock != nil) {
-        weakSelf.completionBlock(resultAsString, typeAsString);
+      if (self.completionBlock != nil) {
+        self.completionBlock(resultAsString, typeAsString);
       }
 
-      if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(reader:didScanResult:forType:)]) {
-        [weakSelf.delegate reader:weakSelf didScanResult:resultAsString forType:(NSString *)typeAsString];
+      if (self.delegate && [self.delegate respondsToSelector:@selector(reader:didScanResult:forType:)]) {
+        [self.delegate reader:self didScanResult:resultAsString forType:(NSString *)typeAsString];
       }
     }];
   }
