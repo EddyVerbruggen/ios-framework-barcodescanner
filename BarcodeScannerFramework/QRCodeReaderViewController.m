@@ -12,6 +12,7 @@
 @property (assign, nonatomic) BOOL                 startScanningAtLoad;
 @property (assign, nonatomic) BOOL                 showSwitchCameraButton;
 @property (assign, nonatomic) BOOL                 showTorchButton;
+@property (assign, nonatomic) NSString             *cancelButtonBackgroundColor;
 
 @property (copy, nonatomic) void (^completionBlock) (NSString * __nullable, NSString * __nullable);
 
@@ -55,13 +56,17 @@
 
 - (id)initWithCancelButtonTitle:(NSString *)cancelTitle codeReader:(QRCodeReader *)codeReader startScanningAtLoad:(BOOL)startScanningAtLoad
 {
-  return [self initWithCancelButtonTitle:cancelTitle codeReader:codeReader startScanningAtLoad:startScanningAtLoad showSwitchCameraButton:YES showTorchButton:NO];
+  return [self initWithCancelButtonTitle:cancelTitle codeReader:codeReader startScanningAtLoad:startScanningAtLoad showSwitchCameraButton:YES showTorchButton:NO cancelButtonBackgroundColor:nil];
 }
 
-- (id)initWithCancelButtonTitle:(nullable NSString *)cancelTitle codeReader:(nonnull QRCodeReader *)codeReader startScanningAtLoad:(BOOL)startScanningAtLoad showSwitchCameraButton:(BOOL)showSwitchCameraButton showTorchButton:(BOOL)showTorchButton
+- (id)initWithCancelButtonTitle:(nullable NSString *)cancelTitle codeReader:(nonnull QRCodeReader *)codeReader startScanningAtLoad:(BOOL)startScanningAtLoad showSwitchCameraButton:(BOOL)showSwitchCameraButton showTorchButton:(BOOL)showTorchButton cancelButtonBackgroundColor:(NSString*)cancelButtonBackgroundColor
 {
   if ((self = [super init])) {
-    self.view.backgroundColor   = [UIColor blackColor];
+    if (cancelButtonBackgroundColor != nil) {
+      self.view.backgroundColor = [self colorFromHexString:cancelButtonBackgroundColor];
+    } else {
+      self.view.backgroundColor = [UIColor blackColor];
+    }
     self.codeReader             = codeReader;
     self.startScanningAtLoad    = startScanningAtLoad;
     self.showSwitchCameraButton = showSwitchCameraButton;
@@ -93,6 +98,15 @@
   return self;
 }
 
+// Assumes input like "#00FF00" (#RRGGBB)
+- (UIColor*) colorFromHexString:(NSString*) hexString {
+  unsigned rgbValue = 0;
+  NSScanner *scanner = [NSScanner scannerWithString:hexString];
+  [scanner setScanLocation:1]; // bypass '#' character
+  [scanner scanHexInt:&rgbValue];
+  return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16) / 255.0 green:((rgbValue & 0xFF00) >> 8) / 255.0 blue:(rgbValue & 0xFF) / 255.0 alpha:1.0];
+}
+
 + (instancetype)readerWithCancelButtonTitle:(NSString *)cancelTitle
 {
   return [[self alloc] initWithCancelButtonTitle:cancelTitle];
@@ -118,9 +132,9 @@
   return [[self alloc] initWithCancelButtonTitle:cancelTitle codeReader:codeReader startScanningAtLoad:startScanningAtLoad];
 }
 
-+ (instancetype)readerWithCancelButtonTitle:(NSString *)cancelTitle codeReader:(QRCodeReader *)codeReader startScanningAtLoad:(BOOL)startScanningAtLoad showSwitchCameraButton:(BOOL)showSwitchCameraButton showTorchButton:(BOOL)showTorchButton
++ (instancetype)readerWithCancelButtonTitle:(NSString *)cancelTitle codeReader:(QRCodeReader *)codeReader startScanningAtLoad:(BOOL)startScanningAtLoad showSwitchCameraButton:(BOOL)showSwitchCameraButton showTorchButton:(BOOL)showTorchButton cancelButtonBackgroundColor:(NSString*)cancelButtonBackgroundColor
 {
-  return [[self alloc] initWithCancelButtonTitle:cancelTitle codeReader:codeReader startScanningAtLoad:startScanningAtLoad showSwitchCameraButton:showSwitchCameraButton showTorchButton:showTorchButton];
+  return [[self alloc] initWithCancelButtonTitle:cancelTitle codeReader:codeReader startScanningAtLoad:startScanningAtLoad showSwitchCameraButton:showSwitchCameraButton showTorchButton:showTorchButton cancelButtonBackgroundColor:cancelButtonBackgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -228,7 +242,7 @@
   NSDictionary *views = NSDictionaryOfVariableBindings(_cameraView, _cancelButton);
 
   [self.view addConstraints:
-   [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_cameraView][_cancelButton(40)]|" options:0 metrics:nil views:views]];
+   [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_cameraView][_cancelButton(49)]|" options:0 metrics:nil views:views]];
   [self.view addConstraints:
    [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_cameraView]|" options:0 metrics:nil views:views]];
   [self.view addConstraints:
