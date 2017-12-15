@@ -234,6 +234,12 @@
   [_cancelButton setTitle:cancelButtonTitle forState:UIControlStateNormal];
   [_cancelButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
   [_cancelButton addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+  if (@available(iOS 11, *)) {
+    UIWindow *window = UIApplication.sharedApplication.keyWindow;
+    if (window.safeAreaInsets.bottom > 0) {
+      [_cancelButton setTitleEdgeInsets:UIEdgeInsetsMake(40, 0, window.safeAreaInsets.bottom + 20, 0)];
+    }
+  }
   [self.view addSubview:_cancelButton];
 }
 

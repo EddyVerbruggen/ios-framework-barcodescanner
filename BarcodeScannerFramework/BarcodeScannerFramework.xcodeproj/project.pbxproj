@@ -16,6 +16,7 @@
 		A312E7F51B7E08BA00CF3C34 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A312E7EC1B7E08BA00CF3C34 /* QRCodeReaderView.m */; };
 		A312E7F61B7E08BA00CF3C34 /* QRCodeReaderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A312E7ED1B7E08BA00CF3C34 /* QRCodeReaderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A312E7F71B7E08BA00CF3C34 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A312E7EE1B7E08BA00CF3C34 /* QRCodeReaderViewController.m */; };
+		A36745041FE415BF0076DB93 /* beep.caf in Resources */ = {isa = PBXBuildFile; fileRef = A36745031FE415BF0076DB93 /* beep.caf */; };
 		A378A0BE1DB0150800C481AF /* QRToggleTorchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A378A0BC1DB0150800C481AF /* QRToggleTorchButton.m */; };
 		A378A0BF1DB0150800C481AF /* QRToggleTorchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A378A0BD1DB0150800C481AF /* QRToggleTorchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3CE9E0B1B7F825D00963570 /* BarcodeScannerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = A3CE9E0A1B7F825D00963570 /* BarcodeScannerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +32,7 @@
 		A312E7EC1B7E08BA00CF3C34 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
 		A312E7ED1B7E08BA00CF3C34 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
 		A312E7EE1B7E08BA00CF3C34 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		A36745031FE415BF0076DB93 /* beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep.caf; sourceTree = "<group>"; };
 		A378A0BC1DB0150800C481AF /* QRToggleTorchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRToggleTorchButton.m; sourceTree = "<group>"; };
 		A378A0BD1DB0150800C481AF /* QRToggleTorchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRToggleTorchButton.h; sourceTree = "<group>"; };
 		A3CE9E0A1B7F825D00963570 /* BarcodeScannerFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarcodeScannerFramework.h; path = BarcodeScannerFramework/BarcodeScannerFramework.h; sourceTree = SOURCE_ROOT; };
@@ -88,6 +90,7 @@
 		FA87D67C1AC9A2C400F12F0E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A36745031FE415BF0076DB93 /* beep.caf */,
 				A3CE9E0C1B7F826700963570 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -167,6 +170,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36745041FE415BF0076DB93 /* beep.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
